@@ -21,7 +21,10 @@ openpyxl notes
 > 
 > `mySheet=wb.create_sheet('mySheet')`
 > 
-##	4. 获取单元格（以下方式获取到的都是单元格object，而不是单元格内的信息）
+##	4. 获取单元格
+> 以下方式获取到的都是单元格object，而不是单元格内的信息。<br>
+> 具体信息需要后面跟`.value`
+> 
 >	a. 直接定位到具体单元格
 >	
 > `cell=ws['A1']`
