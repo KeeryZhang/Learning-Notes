@@ -2,29 +2,21 @@ Git学习笔记
 =
 
 ## 1. 版本控制
-> a. 本地版本控制：个人维护自己的版本，容易混淆，不适用于多人协同操作
->  	
-> b. 集中化版本控制系统：由服务器统一管理版本，客户端只能拿去单个文件，主要问题是单点故障
->  	
-> c. 分布式版本控制系统：服务器类似于集中化（远程仓库），本地也保留一份版本记录（本地仓库），提交变更时先修改本地仓库，然后再上传到远程仓库，不同客户端之间可以互相同步
->  	
->     本地版本库保存在 .git 隐藏目录中
+1. 本地版本控制：个人维护自己的版本，容易混淆，不适用于多人协同操作
+2. 集中化版本控制系统：由服务器统一管理版本，客户端只能拿去单个文件，主要问题是单点故障
+3. 分布式版本控制系统：服务器类似于集中化（远程仓库），本地也保留一份版本记录（本地仓库），提交变更时先修改本地仓库，然后再上传到远程仓库，不同客户端之间可以互相同步
+> 本地版本库保存在 .git 隐藏目录中
 
 
 ## 2. Git安装完毕后需要配置用户名和邮箱
 
-> a. 配置用户名
-> 	
->	`git config --global user.name "Your_name"`
->
-> b. 配置邮箱
-> 	
->	`git config --global user.email "Your_email@mail.com"`
->
-> c. 查看所有配置
-> 	
->	`git config --list`           
->
+1. 配置用户名  
+`git config --global user.name "Your_name"`
+2. 配置邮箱  
+`git config --global user.email "Your_email@mail.com"`
+3. 查看所有配置  
+`git config --list`           
+
 
 ## 3. Git文件的三种状态
 
@@ -92,19 +84,20 @@ Git学习笔记
 > d. 若修改文件后直接使用commit提交，提交会失败
 >		
 > e. 使用版本对比命令查看文件修改
-> 
-> `git diff HEAD -- git01.txt`<br>
-> `diff --git a/git01.txt b/git01.txt`<br> 
-> `index 5390518..e7dac62 100644`<br> 
-> `--- a/git01.txt`                       指变动之前的文件<br> 
-> `+++ b/git01.txt`                      指变动之后的文件<br> 
-> `@@ -1,2 +1,3 @@`                       变动的区别，-1,2意思是变动前的文件是从第一行开始连续2行，+1,3意思是变动后的文件是从第一行开始连续3行<br> 
-> ` content_1`                            第1行未发生变化<br>
-> `-content_2`                            第2行变动（添加换行）<br>
-> `\ No newline at end of file`<br>
-> `+content_2`                            新的第2行<br>
-> `+content_3`                            添加的新的第3行<br>
-> `\ No newline at end of file`
+```diff
+git diff HEAD -- git01.txt
+diff --git a/git01.txt b/git01.txt
+index 5390518..e7dac62 100644
+--- a/git01.txt                       	指变动之前的文件
++++ b/git01.txt                      	指变动之后的文件
+@@ -1,2 +1,3 @@                      	变动的区别，-1,2意思是变动前的文件是从第一行开始连续2行，+1,3意思是变动后的文件是从第一行开始连续3行
+ content_1                            	第1行未发生变化
+-content_2                            	第2行变动（添加换行）
+\ No newline at end of file
++content_2                            	新的第2行
++content_3                            	添加的新的第3行
+\ No newline at end of file
+```
 
 ##	6. 暂存区文件的提交与撤销
 > a. 提交
