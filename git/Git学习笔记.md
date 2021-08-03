@@ -434,3 +434,33 @@ index 5390518..e7dac62 100644
 >	d. 与某个分支的所有文件做比较
 >	
 > `git diff --full-index BR_MAIN`
+
+
+## 21. rebase功能
+> a. 切换到master（main）branch，拉取最新状态
+>        
+> `git checkout master`
+> 
+> `git pull`
+> 
+> b. 切回dev branch
+>        
+> `git checkout dev`
+> 
+> c. 通过本地rebase将本地的多次提交合并为一个，以简化提交历史。若不进行这一步，在下面rebase master时需要多次解决冲突
+>	
+> `git rebase -i HEAD~2`  //合并提交 --- 2表示合并两个
+> 
+> d. rebase到master（main），可能需要手动解决冲突（这个过程类似于将master和当前branch的diff做了patch，然后在当前branch上打patch）
+>	
+> `git rebase master`
+>> ---->解决冲突---->
+>>> `git rebase --continue`
+>>> 
+> e. 至此当前branch就成为了基于最新master所作出的调整，之后再merge可以避免大量冲突和异常
+>	
+> f. 如果有需要，可以切换到master分支，再执行merge
+>	
+> `git checkout master`
+> 
+> `git merge origin/dev`
